@@ -1,0 +1,141 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-playfair);
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-foreground: var(--terracotta-foreground);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: #faf6ec;
+  --foreground: #21281f;
+  --card: #fffcf4;
+  --card-foreground: #21281f;
+  --popover: #fffcf4;
+  --popover-foreground: #21281f;
+  --primary: #1f6e42;
+  --primary-foreground: #fbf7ec;
+  --secondary: #eef0e0;
+  --secondary-foreground: #2d3a26;
+  --muted: #f1ecdd;
+  --muted-foreground: #6b6255;
+  --accent: #f1ecdd;
+  --accent-foreground: #21281f;
+  --terracotta: #bd5b38;
+  --terracotta-foreground: #fff8ee;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #e5dcc6;
+  --input: #e5dcc6;
+  --ring: #1f6e42;
+  --chart-1: #1f6e42;
+  --chart-2: #bd5b38;
+  --chart-3: #4ade80;
+  --chart-4: #d9a441;
+  --chart-5: #14532d;
+  --radius: 0.6rem;
+  --sidebar: #f1ecdd;
+  --sidebar-foreground: #21281f;
+  --sidebar-primary: #1f6e42;
+  --sidebar-primary-foreground: #fbf7ec;
+  --sidebar-accent: #eef0e0;
+  --sidebar-accent-foreground: #2d3a26;
+  --sidebar-border: #e5dcc6;
+  --sidebar-ring: #1f6e42;
+}
+
+.dark {
+  --background: #14201a;
+  --foreground: #f3ecdc;
+  --card: #192720;
+  --card-foreground: #f3ecdc;
+  --popover: #192720;
+  --popover-foreground: #f3ecdc;
+  --primary: #4bb87b;
+  --primary-foreground: #0e1f16;
+  --secondary: #22322a;
+  --secondary-foreground: #e6dec9;
+  --muted: #22322a;
+  --muted-foreground: #a6a08f;
+  --accent: #29392f;
+  --accent-foreground: #f3ecdc;
+  --terracotta: #d97a52;
+  --terracotta-foreground: #2a1409;
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: #2b3b32;
+  --input: #2b3b32;
+  --ring: #4bb87b;
+  --chart-1: #4bb87b;
+  --chart-2: #d97a52;
+  --chart-3: #4ade80;
+  --chart-4: #e0b565;
+  --chart-5: #14532d;
+  --sidebar: #192720;
+  --sidebar-foreground: #f3ecdc;
+  --sidebar-primary: #4bb87b;
+  --sidebar-primary-foreground: #0e1f16;
+  --sidebar-accent: #29392f;
+  --sidebar-accent-foreground: #f3ecdc;
+  --sidebar-border: #2b3b32;
+  --sidebar-ring: #4bb87b;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.035 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1, h2, h3, h4 {
+    @apply font-heading;
+  }
+}
