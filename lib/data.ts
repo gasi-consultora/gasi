@@ -1,7 +1,6 @@
 import {
   FileCheck2,
   ClipboardList,
-  Microscope,
   Radar,
   Landmark,
   ShieldCheck,
@@ -38,9 +37,9 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    title: "Declaraciones ambientales",
+    title: "Estudios y declaraciones de impacto ambiental",
     description:
-      "Elaboración y presentación de Declaraciones de Impacto Ambiental (DIA) ajustadas a la normativa vigente.",
+      "Elaboración y presentación de Estudios de Impacto Ambiental (EIA) y Declaraciones de Impacto Ambiental (DIA) ajustadas a la normativa vigente.",
     icon: FileCheck2,
   },
   {
@@ -50,13 +49,7 @@ export const services: Service[] = [
     icon: ClipboardList,
   },
   {
-    title: "Estudios ambientales",
-    description:
-      "Estudios de línea base, caracterización y evaluación de impactos con equipos técnicos especializados.",
-    icon: Microscope,
-  },
-  {
-    title: "Seguimiento de RCA",
+    title: "Implementación y seguimiento de RCA",
     description:
       "Monitoreo y control del cumplimiento de las Resoluciones de Calificación Ambiental durante todo el ciclo del proyecto.",
     icon: Radar,
@@ -111,21 +104,27 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    sector: "Energía",
-    title: "Parque de generación renovable",
+    sector: "Avícola",
+    title: "Avícola Eduardo Reinero",
     description:
-      "Tramitación de permisos sectoriales y seguimiento ambiental durante la etapa de construcción.",
+      "DIA de regularización de plantel de aves, Región del Maule.",
   },
   {
     sector: "Inmobiliario",
-    title: "Desarrollo urbano habitacional",
+    title: "Cacique Sur",
     description:
-      "Declaración de Impacto Ambiental y gestión de permisos ante organismos municipales y sectoriales.",
+      "Seguimiento e implementación de RCA en DIA del proyecto inmobiliario, Región Metropolitana.",
   },
   {
-    sector: "Industria",
-    title: "Planta de procesos productivos",
+    sector: "Energía",
+    title: "Parque fotovoltaico Sol de Algarrobal",
     description:
-      "Auditoría de cumplimiento ambiental y plan de seguimiento de la Resolución de Calificación Ambiental.",
+      "Participación en la elaboración del Estudio de Impacto Ambiental (EIA) del proyecto, IV Región de Atacama.",
+  },
+  {
+    sector: "Sanitario",
+    title: "Planta Desaladora \"Enapac\"",
+    description:
+      "Participación en la elaboración del Estudio de Impacto Ambiental (EIA) del proyecto, IV Región de Atacama.",
   },
 ];
