@@ -19,9 +19,59 @@ const playfairDisplay = Playfair_Display({
   style: ["normal", "italic"],
 });
 
+const siteUrl = "https://gasi.cl";
+
 export const metadata: Metadata = {
-  title: `${siteConfig.fullName} | ${siteConfig.tagline}`,
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${siteConfig.fullName} | ${siteConfig.tagline}`,
+    template: `%s | ${siteConfig.name}`,
+  },
   description: siteConfig.description,
+  keywords: [
+    "consultora ambiental",
+    "consultora ambiental Chile",
+    "gestión ambiental",
+    "declaración de impacto ambiental",
+    "estudio de impacto ambiental",
+    "permisos ambientales sectoriales",
+    "RCA",
+    "SEA",
+    "SMA",
+  ],
+  authors: [{ name: siteConfig.fullName }],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_CL",
+    url: siteUrl,
+    siteName: siteConfig.fullName,
+    title: siteConfig.fullName,
+    description: siteConfig.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.fullName,
+    description: siteConfig.description,
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: siteConfig.fullName,
+  description: siteConfig.description,
+  url: siteUrl,
+  telephone: siteConfig.phone,
+  email: siteConfig.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Santiago",
+    addressCountry: "CL",
+  },
+  areaServed: "CL",
 };
 
 export default function RootLayout({
@@ -34,7 +84,13 @@ export default function RootLayout({
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

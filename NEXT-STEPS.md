@@ -1,110 +1,99 @@
-# Próximos pasos — Formulario de contacto
+# Próximos pasos
 
 ## Estado actual
 
-El sitio ya está listo y el formulario de contacto ya está **integrado con tu Gmail**
-vía SMTP (`lib/actions.ts` + `components/ContactForm.tsx`), usando la librería
-`nodemailer`. No depende de ningún servicio externo nuevo — solo de tu cuenta de
-Gmail. Puede enviar a cualquier destinatario (tu correo personal, `ccontreras@gasi.cl`,
-o el que sea) sin necesidad de verificar ningún dominio.
+- **Formulario de contacto**: integrado y probado, envía correos vía Google Workspace
+  (`turizar@gasi.cl`) usando `nodemailer` (`lib/actions.ts`). Configurado tanto en local
+  (`.env.local`) como pendiente de replicar en Vercel (ver abajo).
+- **Dominio**: `gasi.cl` ya está comprado por la empresa. El DNS está administrado en
+  **Cloudflare**, no en NIC Chile directamente. Falta conectar el dominio a Vercel.
+- **SEO**: la parte de código ya está lista (`robots.txt`, `sitemap.xml`, metadata
+  completa, imagen de vista previa, datos estructurados). Falta la parte de trámite
+  (Search Console, Google Business Profile) — se hace después de que el dominio esté
+  funcionando.
 
-## Qué falta (una sola vez)
+## 1. Variables de entorno en Vercel (correo)
 
-1. Entra a tu cuenta de Google que va a **enviar** los correos (`tomasurizark@gmail.com`):
-   [myaccount.google.com/security](https://myaccount.google.com/security)
-2. Activa **"Verificación en 2 pasos"** si no la tienes activada (Google la exige para
-   poder generar contraseñas de aplicación).
-3. Busca **"Contraseñas de aplicaciones"** (o entra directo a
-   [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)),
-   crea una nueva (puedes llamarla "GASI web") y copia el código de 16 letras que te da.
-4. Abre el archivo `.env.local` (raíz del proyecto) y complétalo así:
+Ya lo hicimos en local — falta replicarlo en el sitio publicado:
+
+1. Vercel → tu proyecto → **Settings → Environment Variables**.
+2. Actualiza (o crea si no existen):
    ```
-   GMAIL_USER=tomasurizark@gmail.com
-   GMAIL_APP_PASSWORD=el_código_de_16_letras_sin_espacios
-   CONTACT_EMAIL_TO=tomasurizark@gmail.com
+   GMAIL_USER=turizar@gasi.cl
+   GMAIL_APP_PASSWORD=<la contraseña de aplicación que generaste>
+   CONTACT_EMAIL_TO=turizar@gasi.cl
    ```
-5. Corre `npm run dev`, llena el formulario de la web y revisa la bandeja de entrada
-   (y spam, por si acaso, las primeras veces) de `CONTACT_EMAIL_TO`.
+3. **Deployments** → último deploy → tres puntos → **Redeploy**.
 
-`CONTACT_EMAIL_TO` puede ser cualquier correo — por ejemplo `ccontreras@gasi.cl` —
-sin ningún paso adicional. `GMAIL_USER`/`GMAIL_APP_PASSWORD` es solo el remitente
-técnico que manda el correo; el destinatario es libre.
+Para agregar más destinatarios (`ccontreras@gasi.cl`, etc.), edita `CONTACT_EMAIL_TO`
+separando los correos con coma — no requiere tocar código.
 
-## Desplegar en Vercel
+## 2. Conectar el dominio `gasi.cl`
 
-1. Sube el proyecto a un repositorio (GitHub/GitLab) o corre `npx vercel` directo
-   desde la carpeta.
-2. En el proyecto de Vercel: **Settings → Environment Variables**, agrega las mismas
-   tres variables: `GMAIL_USER`, `GMAIL_APP_PASSWORD`, `CONTACT_EMAIL_TO`.
-3. Deploy. Listo.
+Pendiente de que te den acceso a Cloudflare (o que la persona con acceso agregue los
+registros por ti — ver mensajes anteriores). Una vez tengas acceso a Cloudflare:
 
-Para cambiar a qué correo llegan las consultas (por ejemplo pasar de tu Gmail a
-`ccontreras@gasi.cl`), solo editas `CONTACT_EMAIL_TO` en Vercel y vuelves a
-desplegar — no se toca código.
+1. Entra a **dash.cloudflare.com**, abre la zona `gasi.cl` → **DNS → Records**.
+2. Agrega (sin tocar los registros MX existentes, esos son del correo):
+   - Tipo **A**, nombre `@`, valor `76.76.21.21`, proxy **DNS only** (nube gris).
+   - Tipo **CNAME**, nombre `www`, valor `cname.vercel-dns.com`, proxy **DNS only**.
+3. En Vercel → tu proyecto → **Settings → Domains** → agrega `gasi.cl` y `www.gasi.cl`.
+4. Espera unos minutos/horas a que Vercel detecte el DNS y emita el certificado SSL
+   automáticamente — no hay que hacer nada más.
 
-## Dominio propio (ej. www.gasi-consultora-ambiental.cl)
+## 3. Aparecer en Google
 
-Por defecto Vercel te da una URL tipo `gasi-website.vercel.app`. Para usar un dominio
-`.cl` propio son dos pasos separados: **comprarlo** y **conectarlo**.
+**Ya implementado en el código** (no requiere que hagas nada ahí):
+- `robots.txt` y `sitemap.xml` autogenerados, apuntando a `https://gasi.cl`.
+- Metadata completa: título, descripción, palabras clave, Open Graph, Twitter card.
+- Imagen de vista previa (se ve al compartir el link en WhatsApp/redes).
+- Datos estructurados (`ProfessionalService`) para que Google entienda que es una
+  consultora ambiental.
 
-### 1. Comprar el dominio
+**Pendiente de tu parte, una vez `gasi.cl` esté conectado y funcionando:**
 
-Los dominios `.cl` los administra **NIC Chile**, así que no se compran igual que un
-`.com`. Dos formas:
+1. **Google Search Console** ([search.google.com/search-console](https://search.google.com/search-console)):
+   - Agrega la propiedad `gasi.cl`.
+   - Verifica que eres el dueño — la forma más simple ahora que tendrás acceso a
+     Cloudflare es agregar un registro **TXT** que Search Console te va a dar (Cloudflare
+     → DNS → Add record → tipo TXT).
+   - Una vez verificado, en el menú "Sitemaps" envía: `https://gasi.cl/sitemap.xml`.
+   - Esto acelera que Google indexe el sitio (de lo contrario puede tardar semanas en
+     encontrarlo solo).
 
-- **Directo en [nic.cl](https://www.nic.cl)**: buscas disponibilidad de
-  `gasi-consultora-ambiental.cl`, te registras como "usuario registrante" (con RUT,
-  tuyo o de la empresa) y pagas la cuota anual ahí mismo.
-- **A través de un proveedor/revendedor** (muchos hostings chilenos y algunos
-  internacionales gestionan `.cl` por ti, cobrando un poco más por el trámite).
+2. **Google Business Profile** ([business.google.com](https://business.google.com)):
+   crea el perfil de la consultora con dirección, teléfono y horario reales — esto es lo
+   que hace que aparezca en Google Maps y en el panel lateral cuando alguien busque
+   "consultora ambiental" cerca de su ubicación. Para un negocio local suele ser más
+   efectivo que el posicionamiento web tradicional, y es gratis.
 
-Cualquiera de las dos formas te deja siendo el dueño registrado del dominio.
+**Dos datos de contenido para revisar antes de publicar** (no son técnicos, son
+decisiones de negocio):
+- El sitio muestra `contacto@gasi.cl` como correo público de contacto
+  (`lib/data.ts` → `siteConfig.email`) — confirma si esa casilla existe y la revisan,
+  o si prefieres mostrar `turizar@gasi.cl` u otra.
+- La dirección mostrada es un placeholder genérico ("Santiago, Chile") — para que el
+  perfil de Google Business y los datos estructurados sean más efectivos, conviene
+  poner la dirección real de la oficina cuando la tengas a mano. Avísame y la actualizo
+  en `lib/data.ts`.
 
-### 2. Conectarlo a Vercel
-
-1. En el dashboard de Vercel → tu proyecto → **Settings → Domains**.
-2. Agrega `gasi-consultora-ambiental.cl` y `www.gasi-consultora-ambiental.cl` (Vercel
-   te va a sugerir que uno redirija al otro — normalmente se deja `www` como principal
-   y el dominio raíz redirige hacia él, o viceversa, como prefieras).
-3. Vercel te muestra qué registros DNS configurar. Dos caminos:
-   - **Más simple**: cambiar los *nameservers* del dominio (en NIC Chile o donde lo
-     compraste) a los que te indique Vercel (`ns1.vercel-dns.com`,
-     `ns2.vercel-dns.com`) — Vercel pasa a administrar todo el DNS.
-   - **Alternativa**: si quieres mantener el DNS donde lo compraste (por ejemplo para
-     tener correos `@gasi-consultora-ambiental.cl` en otro proveedor), en vez de
-     cambiar nameservers agregas manualmente un registro **A** apuntando a la IP que
-     te da Vercel para el dominio raíz, y un registro **CNAME** apuntando a
-     `cname.vercel-dns.com` para `www`.
-4. Espera la propagación DNS (de minutos a ~24-48 horas). Vercel emite automáticamente
-   el certificado SSL (candado/https) sin costo, apenas detecta el DNS correcto.
-
-Una vez el dominio esté funcionando, avísame para actualizar la metadata del sitio
-(`app/layout.tsx`) con la URL final — mejora cómo se ve el link al compartirlo en
-WhatsApp/redes.
-
-## ¿Esto va a seguir funcionando para siempre, sin problema?
+## ¿El envío de correo va a seguir funcionando para siempre, sin problema?
 
 **Sí**, de forma gratuita e indefinida, con estas condiciones (normales para cualquier
-cuenta de Gmail, no son "trucos" frágiles):
+cuenta de Google, no son "trucos" frágiles):
 
-- **Límite de envío de Gmail**: ~500 correos salientes por día por cuenta. Un
-  formulario de contacto de una consultora recibe consultas ocasionales, muy lejos de
-  ese límite.
-- **La contraseña de aplicación no caduca sola** — sigue siendo válida hasta que tú la
-  revoques manualmente desde la configuración de Google, o desactives la verificación
-  en 2 pasos.
-- **El destinatario (`CONTACT_EMAIL_TO`) es completamente libre**: no hay restricción
-  de "solo puedes enviarte a ti mismo" como pasaba con Resend — puedes apuntar a
-  `ccontreras@gasi.cl` o a cualquier otra dirección desde el día uno.
+- **Límite de envío**: ~500 correos salientes por día por cuenta — muy por encima de lo
+  que recibe un formulario de contacto de una consultora.
+- **La contraseña de aplicación no caduca sola** — sigue siendo válida hasta que se
+  revoque manualmente, o se desactive la verificación en 2 pasos de esa cuenta.
+- **El destinatario (`CONTACT_EMAIL_TO`) es completamente libre**: puede ser cualquier
+  dirección o varias separadas por coma, sin restricciones.
 
 **Lo único que podría romperlo:**
-- Que revoques la contraseña de aplicación o desactives la verificación en 2 pasos en
-  esa cuenta de Google → los correos empiezan a fallar hasta generar una nueva.
+- Que se revoque la contraseña de aplicación o se desactive la verificación en 2 pasos
+  de `turizar@gasi.cl` → los correos fallan hasta generar una nueva.
+- Que el administrador de Workspace deshabilite las contraseñas de aplicación a nivel
+  organización (si eso pasa, hay que pedirle que la habilite para esta cuenta, o migrar
+  a OAuth2 — más trabajo pero también posible).
 - Que Google cambie sus políticas de SMTP para cuentas gratuitas en el futuro (riesgo
   bajo, pero es un servicio externo).
-- Si Gmail alguna vez marca el envío como sospechoso (poco probable con este volumen),
-  revisa la bandeja de "Actividad reciente" en la cuenta de Google.
-
-En resumen: sin cuentas nuevas, sin dominios que verificar, sin tarjeta de crédito —
-solo tu Gmail. Es la opción más simple posible dado que cualquier envío de correo
-automático necesita autenticarse contra algún servidor.
