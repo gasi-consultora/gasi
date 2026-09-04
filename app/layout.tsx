@@ -68,6 +68,7 @@ const jsonLd = {
   email: siteConfig.email,
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Marcoleta 540",
     addressLocality: "Santiago",
     addressCountry: "CL",
   },

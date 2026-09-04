@@ -13,10 +13,10 @@ export const siteConfig = {
   tagline: "Asesoría ambiental que le da tranquilidad a tu proyecto",
   description:
     "Acompañamos a empresas y proyectos en toda su gestión ambiental: declaraciones, permisos sectoriales, estudios, seguimiento de RCA y relación con organismos públicos.",
-  phone: "+56 9 1234 5678",
-  whatsappNumber: "56912345678",
-  email: "contacto@gasi.cl",
-  address: "Santiago, Chile",
+  phone: "+56 9 9215 5960",
+  whatsappNumber: "56992155960",
+  email: "hernangp@gasi.cl",
+  address: "Marcoleta 540, Santiago, Chile",
 };
 
 export const whatsappLink = (message = "Hola, quisiera solicitar una asesoría ambiental.") =>
