@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Mail, Phone, MapPin, CheckCircle2, AlertCircle } from "lucide-react";
+import { Mail, Phone, MapPin, HelpCircle, CheckCircle2, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -83,6 +83,13 @@ export function ContactForm() {
               <MapPin className="size-4 text-primary" strokeWidth={1.75} />
               {siteConfig.address}
             </div>
+            <a
+              href="/faq"
+              className="flex items-center gap-3 text-sm text-foreground hover:text-terracotta"
+            >
+              <HelpCircle className="size-4 text-primary" strokeWidth={1.75} />
+              ¿Tienes una duda común? Revisa nuestras preguntas frecuentes
+            </a>
           </div>
         </ScrollReveal>
 

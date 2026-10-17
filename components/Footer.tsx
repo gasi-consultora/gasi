@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="bg-primary text-primary-foreground">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
         <div>
-          <a href="#top" className="flex items-center">
+          <a href="/" className="flex items-center">
             <Image
               src="/images/gasi_logo.png"
               alt={siteConfig.fullName}
