@@ -17,6 +17,9 @@ export function Testimonials() {
             Algunos de los tipos de proyectos en los que hemos apoyado la gestión
             ambiental.
           </p>
+          <p className="mt-2 text-xs text-muted-foreground/60">
+            Fotografías referenciales.
+          </p>
         </ScrollReveal>
 
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -46,9 +49,6 @@ export function Testimonials() {
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   {project.description}
-                </p>
-                <p className="mt-4 text-[11px] uppercase tracking-wide text-muted-foreground/60">
-                  Imagen referencial
                 </p>
               </div>
             </ScrollReveal>
