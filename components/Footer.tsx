@@ -53,9 +53,14 @@ export function Footer() {
                 {siteConfig.email}
               </a>
             </li>
-            <li className="flex items-center gap-2 text-sm text-primary-foreground/85">
-              <Phone className="size-4" strokeWidth={1.75} />
-              {siteConfig.phone}
+            <li>
+              <a
+                href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}
+                className="flex items-center gap-2 text-sm text-primary-foreground/85 hover:text-terracotta"
+              >
+                <Phone className="size-4" strokeWidth={1.75} />
+                {siteConfig.phone}
+              </a>
             </li>
             <li className="flex items-center gap-2 text-sm text-primary-foreground/85">
               <MapPin className="size-4" strokeWidth={1.75} />

@@ -4,44 +4,13 @@
 
 - **Formulario de contacto**: integrado y probado, envía correos vía Google Workspace
   (`turizar@gasi.cl`) usando `nodemailer` (`lib/actions.ts`). Configurado tanto en local
-  (`.env.local`) como pendiente de replicar en Vercel (ver abajo).
-- **Dominio**: `gasi.cl` ya está comprado por la empresa. El DNS está administrado en
-  **Cloudflare**, no en NIC Chile directamente. Falta conectar el dominio a Vercel.
+  (`.env.local`) como en Vercel (variables de entorno replicadas).
+- **Dominio**: `gasi.cl` conectado a Vercel y funcionando.
 - **SEO**: la parte de código ya está lista (`robots.txt`, `sitemap.xml`, metadata
   completa, imagen de vista previa, datos estructurados). Falta la parte de trámite
-  (Search Console, Google Business Profile) — se hace después de que el dominio esté
-  funcionando.
+  (Search Console, Google Business Profile) — ver abajo.
 
-## 1. Variables de entorno en Vercel (correo)
-
-Ya lo hicimos en local — falta replicarlo en el sitio publicado:
-
-1. Vercel → tu proyecto → **Settings → Environment Variables**.
-2. Actualiza (o crea si no existen):
-   ```
-   GMAIL_USER=turizar@gasi.cl
-   GMAIL_APP_PASSWORD=<la contraseña de aplicación que generaste>
-   CONTACT_EMAIL_TO=turizar@gasi.cl
-   ```
-3. **Deployments** → último deploy → tres puntos → **Redeploy**.
-
-Para agregar más destinatarios (`ccontreras@gasi.cl`, etc.), edita `CONTACT_EMAIL_TO`
-separando los correos con coma — no requiere tocar código.
-
-## 2. Conectar el dominio `gasi.cl`
-
-Pendiente de que te den acceso a Cloudflare (o que la persona con acceso agregue los
-registros por ti — ver mensajes anteriores). Una vez tengas acceso a Cloudflare:
-
-1. Entra a **dash.cloudflare.com**, abre la zona `gasi.cl` → **DNS → Records**.
-2. Agrega (sin tocar los registros MX existentes, esos son del correo):
-   - Tipo **A**, nombre `@`, valor `76.76.21.21`, proxy **DNS only** (nube gris).
-   - Tipo **CNAME**, nombre `www`, valor `cname.vercel-dns.com`, proxy **DNS only**.
-3. En Vercel → tu proyecto → **Settings → Domains** → agrega `gasi.cl` y `www.gasi.cl`.
-4. Espera unos minutos/horas a que Vercel detecte el DNS y emita el certificado SSL
-   automáticamente — no hay que hacer nada más.
-
-## 3. Aparecer en Google
+## 1. Aparecer en Google
 
 **Ya implementado en el código** (no requiere que hagas nada ahí):
 - `robots.txt` y `sitemap.xml` autogenerados, apuntando a `https://gasi.cl`.

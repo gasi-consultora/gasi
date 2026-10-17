@@ -172,6 +172,11 @@ export function ContactForm() {
               >
                 {status === "submitting" ? "Enviando..." : "Solicitar asesoría"}
               </Button>
+
+              <p className="text-center text-xs text-muted-foreground">
+                Tus datos se usan solo para responder tu consulta y no se comparten con
+                terceros.
+              </p>
             </form>
           )}
         </ScrollReveal>
