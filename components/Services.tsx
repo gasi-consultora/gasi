@@ -1,4 +1,4 @@
-import { Leaf } from "lucide-react";
+import { MountainSnow } from "lucide-react";
 import { services } from "@/lib/data";
 import { ScrollReveal } from "@/components/ScrollReveal";
 
@@ -7,7 +7,7 @@ export function Services() {
     <section id="servicios" className="bg-background py-24 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-          <ScrollReveal className="lg:col-span-4">
+          <ScrollReveal className="lg:sticky lg:top-24 lg:col-span-4 lg:self-start">
             <span className="text-xs font-semibold uppercase tracking-[0.28em] text-terracotta">
               Qué hacemos
             </span>
@@ -18,7 +18,7 @@ export function Services() {
               Soluciones ambientales completas para acompañar tu proyecto en cada
               etapa, desde la tramitación hasta el seguimiento en terreno.
             </p>
-            <Leaf
+            <MountainSnow
               className="mt-12 hidden size-20 text-primary/15 sm:size-28 lg:block"
               strokeWidth={1}
               aria-hidden
