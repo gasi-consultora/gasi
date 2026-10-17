@@ -19,7 +19,7 @@ export function Services() {
               etapa, desde la tramitación hasta el seguimiento en terreno.
             </p>
             <Leaf
-              className="mt-12 size-20 text-primary/15 sm:size-28"
+              className="mt-12 hidden size-20 text-primary/15 sm:size-28 lg:block"
               strokeWidth={1}
               aria-hidden
             />
