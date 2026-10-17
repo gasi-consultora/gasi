@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/select";
 import { services, siteConfig, whatsappLink } from "@/lib/data";
 import { sendContactEmail } from "@/lib/actions";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -49,7 +50,7 @@ export function ContactForm() {
   return (
     <section id="contacto" className="bg-secondary py-24 sm:py-28">
       <div className="mx-auto grid max-w-6xl gap-14 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
-        <div className="lg:col-span-5">
+        <ScrollReveal className="lg:col-span-5">
           <span className="text-xs font-semibold uppercase tracking-[0.28em] text-terracotta">
             Contacto
           </span>
@@ -83,9 +84,12 @@ export function ContactForm() {
               {siteConfig.address}
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
-        <div className="rounded-tl-[2.5rem] rounded-tr-md rounded-br-[2.5rem] rounded-bl-md border border-border bg-card p-6 sm:p-8 lg:col-span-7">
+        <ScrollReveal
+          delay={120}
+          className="rounded-tl-[2.5rem] rounded-tr-md rounded-br-[2.5rem] rounded-bl-md border border-border bg-card p-6 sm:p-8 lg:col-span-7"
+        >
           {status === "success" ? (
             <div className="flex h-full flex-col items-center justify-center gap-3 py-12 text-center">
               <CheckCircle2 className="size-10 text-primary" strokeWidth={1.5} />
@@ -170,7 +174,7 @@ export function ContactForm() {
               </Button>
             </form>
           )}
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

@@ -1,12 +1,13 @@
+import Image from "next/image";
 import { ArrowRight, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/data";
 
 export function Hero() {
   return (
-    <section id="top" className="bg-background pt-28 pb-20 sm:pt-36 sm:pb-28">
+    <section id="top" className="bg-background pt-20 pb-8 sm:pt-28 sm:pb-12">
       <div className="mx-auto grid max-w-6xl items-center gap-16 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-6">
           <span className="text-xs font-semibold uppercase tracking-[0.28em] text-terracotta">
             Consultora ambiental
           </span>
@@ -39,86 +40,19 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="hidden justify-center lg:col-span-5 lg:flex">
-          <BranchIllustration className="h-auto w-full max-w-[280px] text-primary" />
+        <div className="hidden justify-center lg:col-span-6 lg:flex">
+          <div className="relative aspect-[4/3] w-full max-w-[460px] overflow-hidden rounded-tl-[2.5rem] rounded-tr-md rounded-br-[2.5rem] rounded-bl-md border border-border">
+            <Image
+              src="/images/hero-landscape.jpg"
+              alt="Paisaje de cordillera y bosque nativo chileno"
+              fill
+              priority
+              sizes="(min-width: 1024px) 460px, 0px"
+              className="object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function BranchIllustration({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 260 360"
-      fill="none"
-      className={className}
-      aria-hidden
-    >
-      <path
-        d="M130 350C122 280 142 230 118 170C98 122 132 90 122 40"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M122 150C100 138 78 142 58 122"
-        stroke="currentColor"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M124 230C146 218 164 222 186 202"
-        stroke="currentColor"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M119 280C98 272 84 280 64 268"
-        stroke="currentColor"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-      />
-
-      <ellipse
-        cx="52"
-        cy="112"
-        rx="22"
-        ry="12"
-        transform="rotate(-28 52 112)"
-        fill="currentColor"
-        fillOpacity="0.16"
-        stroke="currentColor"
-        strokeWidth="1.6"
-      />
-      <ellipse
-        cx="192"
-        cy="192"
-        rx="24"
-        ry="13"
-        transform="rotate(18 192 192)"
-        fill="currentColor"
-        fillOpacity="0.16"
-        stroke="currentColor"
-        strokeWidth="1.6"
-      />
-      <ellipse
-        cx="58"
-        cy="260"
-        rx="22"
-        ry="12"
-        transform="rotate(-16 58 260)"
-        fill="currentColor"
-        fillOpacity="0.16"
-        stroke="currentColor"
-        strokeWidth="1.6"
-      />
-      <ellipse
-        cx="122" cy="34" rx="15" ry="18"
-        className="text-terracotta"
-        fill="currentColor"
-        fillOpacity="0.85"
-      />
-    </svg>
   );
 }

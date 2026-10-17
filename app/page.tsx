@@ -14,6 +14,9 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <OrganicDivider color="text-secondary" />
+        <div className="h-8 bg-secondary sm:h-12" />
+        <OrganicDivider color="text-background" flip />
         <Services />
         <OrganicDivider color="text-secondary" />
         <WhyUs />

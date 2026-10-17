@@ -100,6 +100,7 @@ export type Project = {
   sector: string;
   title: string;
   description: string;
+  image: string;
 };
 
 export const projects: Project[] = [
@@ -108,23 +109,27 @@ export const projects: Project[] = [
     title: "Avícola Eduardo Reinero",
     description:
       "DIA de regularización de plantel de aves, Región del Maule.",
+    image: "/images/proyecto-avicola.jpg",
   },
   {
     sector: "Inmobiliario",
     title: "Cacique Sur",
     description:
       "Seguimiento e implementación de RCA en DIA del proyecto inmobiliario, Región Metropolitana.",
+    image: "/images/proyecto-inmobiliario.jpg",
   },
   {
     sector: "Energía",
     title: "Parque fotovoltaico Sol de Algarrobal",
     description:
       "Participación en la elaboración del Estudio de Impacto Ambiental (EIA) del proyecto, IV Región de Atacama.",
+    image: "/images/proyecto-energia.jpg",
   },
   {
     sector: "Sanitario",
     title: "Planta Desaladora \"Enapac\"",
     description:
       "Participación en la elaboración del Estudio de Impacto Ambiental (EIA) del proyecto, IV Región de Atacama.",
+    image: "/images/proyecto-sanitario.jpg",
   },
 ];
