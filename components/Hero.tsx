@@ -7,8 +7,8 @@ export function Hero() {
   return (
     <section id="top" className="relative flex min-h-[640px] items-center overflow-hidden sm:min-h-[720px]">
       <Image
-        src="/images/monitoreo-terreno.jpg"
-        alt="Estación de monitoreo ambiental en terreno, cordillera chilena"
+        src="/images/hero.jpg"
+        alt="Volcán nevado reflejado en un lago del sur de Chile, con bosque nativo de araucarias"
         fill
         priority
         sizes="100vw"
