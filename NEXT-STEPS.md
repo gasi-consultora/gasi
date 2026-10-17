@@ -46,6 +46,35 @@ decisiones de negocio):
   poner la dirección real de la oficina cuando la tengas a mano. Avísame y la actualizo
   en `lib/data.ts`.
 
+## 2. SEO de largo plazo: aparecer entre los primeros resultados
+
+Importante distinguir dos cosas distintas:
+
+- **Que Google encuentre e indexe el sitio** → eso ya está cubierto (sección 1 de
+  arriba). Es la base técnica necesaria, pero no garantiza buen ranking.
+- **Rankear entre los primeros resultados** para términos competidos como "consultoría
+  ambiental" → eso es un esfuerzo de meses, no algo que se resuelva con código, y
+  depende sobre todo de estos factores (ninguno implementado aún):
+
+1. **Backlinks** (el factor que más pesa, y el más ausente hoy): que otros sitios con
+   autoridad enlacen a `gasi.cl` — directorios de consultoras, asociaciones gremiales,
+   menciones en medios, sitios de clientes con los que han trabajado. Sin esto es muy
+   difícil competir contra consultoras que llevan años acumulando enlaces.
+2. **Profundidad de contenido**: hoy el sitio es una sola página. Páginas dedicadas a
+   temas específicos (ej. "¿Qué es una DIA?", "EIA vs DIA en Chile") capturarían
+   búsquedas de cola larga que hoy no se capturan en absoluto.
+3. **Reseñas en Google Business Profile**: pesan fuerte en el ranking local, y además
+   suman a la confianza del sitio (ver el hueco de testimonios/logos de clientes que
+   quedó pendiente).
+4. **Actualización constante** (blog/noticias): Google favorece sitios "vivos"; uno
+   estático de una sola página tiene techo bajo para keywords de cola larga.
+
+**En la práctica**: si la prioridad es que te *encuentren* (alguien busca "consultora
+ambiental" cerca de su ubicación y aparece el Google Business Profile / Maps), eso ya
+está prácticamente resuelto con lo de la sección 1. Si la prioridad es rankear
+orgánico contra consultoras ya posicionadas, hace falta una estrategia de contenido y
+enlaces aparte — vale la pena conversarlo cuando quieran invertir tiempo en eso.
+
 ## ¿El envío de correo va a seguir funcionando para siempre, sin problema?
 
 **Sí**, de forma gratuita e indefinida, con estas condiciones (normales para cualquier
