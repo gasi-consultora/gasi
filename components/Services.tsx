@@ -1,4 +1,4 @@
-import { MountainSnow } from "lucide-react";
+import Image from "next/image";
 import { services } from "@/lib/data";
 import { ScrollReveal } from "@/components/ScrollReveal";
 
@@ -8,21 +8,27 @@ export function Services() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <ScrollReveal className="lg:sticky lg:top-24 lg:col-span-4 lg:self-start">
-            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-terracotta">
-              Qué hacemos
-            </span>
-            <h2 className="mt-4 font-heading text-4xl font-normal text-foreground sm:text-5xl">
-              Servicios
-            </h2>
-            <p className="mt-5 max-w-sm text-muted-foreground">
-              Soluciones ambientales completas para acompañar tu proyecto en cada
-              etapa, desde la tramitación hasta el seguimiento en terreno.
-            </p>
-            <MountainSnow
-              className="mt-12 hidden size-20 text-primary/15 sm:size-28 lg:block"
-              strokeWidth={1}
-              aria-hidden
-            />
+            <div className="relative flex min-h-[320px] flex-col justify-center overflow-hidden rounded-tl-[2.5rem] rounded-tr-md rounded-br-[2.5rem] rounded-bl-md border border-border p-8 sm:min-h-[480px] sm:p-10 lg:min-h-[600px]">
+              <Image
+                src="/images/servicios.jpg"
+                alt="Mapas topográficos, GPS y planos de un proyecto en evaluación ambiental"
+                fill
+                sizes="(min-width: 1024px) 380px, 100vw"
+                className="scale-110 object-cover blur-[2px]"
+              />
+              <div className="absolute inset-0 bg-black/55" />
+
+              <span className="relative text-xs font-semibold uppercase tracking-[0.28em] text-terracotta">
+                Qué hacemos
+              </span>
+              <h2 className="relative mt-4 font-heading text-4xl font-normal text-white sm:text-5xl">
+                Servicios
+              </h2>
+              <p className="relative mt-5 max-w-sm text-white/80">
+                Soluciones ambientales completas para acompañar tu proyecto en cada
+                etapa, desde la tramitación hasta el seguimiento en terreno.
+              </p>
+            </div>
           </ScrollReveal>
 
           <div className="divide-y divide-border lg:col-span-8">
