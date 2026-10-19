@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://gasi.cl/sitemap.xml",
+    sitemap: "https://www.gasi.cl/sitemap.xml",
   };
 }

@@ -20,7 +20,7 @@ const playfairDisplay = Playfair_Display({
   style: ["normal", "italic"],
 });
 
-const siteUrl = "https://gasi.cl";
+const siteUrl = "https://www.gasi.cl";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
