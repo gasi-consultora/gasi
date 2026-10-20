@@ -16,7 +16,7 @@ export default async function Image() {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "center",
-          backgroundColor: "#faf6ec",
+          backgroundColor: "#faf8f6",
           padding: "90px",
         }}
       >
@@ -48,7 +48,7 @@ export default async function Image() {
           style={{
             display: "flex",
             fontSize: 36,
-            color: "#1f6e42",
+            color: "#2d6b5f",
             marginTop: 28,
             maxWidth: 950,
           }}

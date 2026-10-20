@@ -8,7 +8,7 @@ export function WhyUs() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <ScrollReveal className="lg:sticky lg:top-24 lg:col-span-5 lg:self-start">
-            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-terracotta">
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-terracotta-dark">
               Nuestro equipo
             </span>
             <h2 className="mt-4 font-heading text-4xl font-normal text-foreground sm:text-5xl">

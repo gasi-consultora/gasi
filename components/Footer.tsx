@@ -30,7 +30,7 @@ export function Footer() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-sm text-primary-foreground/85 hover:text-terracotta"
+                  className="text-sm text-primary-foreground/85 hover:text-primary-foreground hover:underline"
                 >
                   {link.label}
                 </a>
@@ -47,7 +47,7 @@ export function Footer() {
             <li>
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="flex items-center gap-2 text-sm text-primary-foreground/85 hover:text-terracotta"
+                className="flex items-center gap-2 text-sm text-primary-foreground/85 hover:text-primary-foreground hover:underline"
               >
                 <Mail className="size-4" strokeWidth={1.75} />
                 {siteConfig.email}
@@ -56,7 +56,7 @@ export function Footer() {
             <li>
               <a
                 href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}
-                className="flex items-center gap-2 text-sm text-primary-foreground/85 hover:text-terracotta"
+                className="flex items-center gap-2 text-sm text-primary-foreground/85 hover:text-primary-foreground hover:underline"
               >
                 <Phone className="size-4" strokeWidth={1.75} />
                 {siteConfig.phone}
