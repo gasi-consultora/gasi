@@ -14,17 +14,15 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <OrganicDivider color="text-secondary" />
-        <div className="h-8 bg-secondary sm:h-12" />
-        <OrganicDivider color="text-background" flip />
+        <OrganicDivider color="text-background" variant="arc" flip />
         <Services />
-        <OrganicDivider color="text-secondary" />
+        <OrganicDivider color="text-secondary" variant="ripple" />
         <WhyUs />
-        <OrganicDivider color="text-background" flip />
+        <OrganicDivider color="text-background" variant="wave" flip />
         <Testimonials />
-        <OrganicDivider color="text-secondary" />
+        <OrganicDivider color="text-secondary" variant="arc" />
         <ContactForm />
-        <OrganicDivider color="text-primary" flip />
+        <OrganicDivider color="text-primary" variant="ripple" flip />
       </main>
       <Footer />
       <WhatsAppButton />
