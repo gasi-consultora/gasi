@@ -50,7 +50,7 @@ export function ContactForm() {
   return (
     <section id="contacto" className="bg-secondary py-24 sm:py-28">
       <div className="mx-auto grid max-w-6xl gap-14 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
-        <ScrollReveal className="lg:col-span-5">
+        <ScrollReveal direction="left" className="lg:col-span-5">
           <span className="text-xs font-semibold uppercase tracking-[0.28em] text-terracotta-dark">
             Contacto
           </span>
@@ -95,6 +95,7 @@ export function ContactForm() {
 
         <ScrollReveal
           delay={120}
+          direction="right"
           className="rounded-lg border border-border bg-card p-6 sm:p-8 lg:col-span-7"
         >
           {status === "success" ? (

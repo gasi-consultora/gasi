@@ -27,6 +27,7 @@ export function Testimonials() {
             <ScrollReveal
               key={project.title}
               delay={index * 100}
+              direction="scale"
               className={`overflow-hidden rounded-lg border border-border bg-card ${
                 index % 2 === 1 ? "sm:translate-y-8 sm:rotate-1" : "sm:-rotate-1"
               }`}

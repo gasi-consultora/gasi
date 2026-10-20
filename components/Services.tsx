@@ -7,7 +7,7 @@ export function Services() {
     <section id="servicios" className="bg-background py-24 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-          <ScrollReveal className="lg:sticky lg:top-24 lg:col-span-4 lg:self-start">
+          <ScrollReveal direction="scale" className="lg:sticky lg:top-24 lg:col-span-4 lg:self-start">
             <div className="relative flex min-h-[320px] flex-col justify-center overflow-hidden rounded-lg border border-border p-8 sm:min-h-[480px] sm:p-10 lg:min-h-[600px]">
               <Image
                 src="/images/servicios.jpg"
