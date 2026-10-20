@@ -13,7 +13,7 @@ cargado. En contenido y señales de confianza estamos más atrás.
 
 ## Se puede hacer sin más información
 
-- [ ] **"Áreas de especialidad" por sector**: ya tenemos la data (Avícola,
+- [ ] **"Áreas de especialidad" por sector - OPCIONAL**: ya tenemos la data (Avícola,
   Inmobiliario, Energía, Sanitario) en Proyectos — se puede armar una
   sección que categorice los servicios por sector, como hace
   sustentable.cl con "Áreas de especialidades".

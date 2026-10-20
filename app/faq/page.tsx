@@ -70,7 +70,7 @@ export default function FaqPage() {
 
             <ScrollReveal
               delay={200}
-              className="mt-14 rounded-tl-[2.5rem] rounded-tr-md rounded-br-[2.5rem] rounded-bl-md border border-border bg-card p-8 text-center sm:p-10"
+              className="mt-14 rounded-lg border border-border bg-card p-8 text-center sm:p-10"
             >
               <p className="font-heading text-xl font-medium text-foreground">
                 ¿Tu proyecto tiene una situación distinta?

@@ -95,7 +95,7 @@ export function ContactForm() {
 
         <ScrollReveal
           delay={120}
-          className="rounded-tl-[2.5rem] rounded-tr-md rounded-br-[2.5rem] rounded-bl-md border border-border bg-card p-6 sm:p-8 lg:col-span-7"
+          className="rounded-lg border border-border bg-card p-6 sm:p-8 lg:col-span-7"
         >
           {status === "success" ? (
             <div className="flex h-full flex-col items-center justify-center gap-3 py-12 text-center">

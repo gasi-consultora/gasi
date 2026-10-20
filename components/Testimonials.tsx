@@ -27,8 +27,8 @@ export function Testimonials() {
             <ScrollReveal
               key={project.title}
               delay={index * 100}
-              className={`overflow-hidden rounded-tl-[2.5rem] rounded-tr-md rounded-br-[2.5rem] rounded-bl-md border border-border bg-card ${
-                index % 2 === 1 ? "sm:translate-y-8" : ""
+              className={`overflow-hidden rounded-lg border border-border bg-card ${
+                index % 2 === 1 ? "sm:translate-y-8 sm:rotate-1" : "sm:-rotate-1"
               }`}
             >
               <div className="relative aspect-[4/3]">
