@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/data";
 
 export function Hero() {
   return (
-    <section id="top" className="relative flex min-h-[640px] items-center overflow-hidden sm:min-h-[720px]">
+    <section id="top" className="relative flex min-h-[560px] items-center overflow-hidden sm:min-h-[640px]">
       <Image
         src="/images/hero.jpg"
         alt="Volcán nevado reflejado en un lago del sur de Chile, con bosque nativo de araucarias"
